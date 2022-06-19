@@ -18,7 +18,7 @@ module SpreeShopifyImporter
         private
 
         def find_in_batches(**opts)
-          opts = { page: 1 }.merge(opts)
+          #opts = { page: 1 }.merge(opts)
           loop do
             batch = api_class.find(:all, params: opts)
             break if batch.blank?
