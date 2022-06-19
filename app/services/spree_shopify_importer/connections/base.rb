@@ -23,7 +23,7 @@ module SpreeShopifyImporter
             batch = api_class.find(:all, params: opts)
             break if batch.blank?
             yield batch
-            opts[:page] += 1
+            #opts[:page] += 1
           end
         end
 
