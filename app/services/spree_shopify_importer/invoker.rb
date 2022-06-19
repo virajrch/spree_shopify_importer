@@ -27,7 +27,7 @@ module SpreeShopifyImporter
 
     def connect
       set_current_credentials
-      SpreeShopifyImporter::Connections::Client.instance.get_connection(@credentials)
+      SpreeShopifyImporter::Connections::Client.instance.get_connection(**@credentials)
     end
 
     def set_current_credentials
