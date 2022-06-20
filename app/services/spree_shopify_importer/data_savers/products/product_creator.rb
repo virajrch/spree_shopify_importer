@@ -7,7 +7,7 @@ module SpreeShopifyImporter
             @spree_product = create_spree_product
             assign_spree_product_to_data_feed
             add_option_types
-            add_tags
+            #add_tags
           end
           create_spree_variants
           create_spree_images
