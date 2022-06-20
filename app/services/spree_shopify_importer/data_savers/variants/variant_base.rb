@@ -14,8 +14,8 @@ module SpreeShopifyImporter
         def set_stock_data
           @spree_variant.update(track_inventory: track_inventory?)
           stock_item = @spree_variant.stock_items.find_by(stock_location: stock_location)
-          stock_item.update(backorderable: backorderable?)
-          stock_item.update_column(:count_on_hand, inventory_quantity) if track_inventory?
+          stock_item.update(backorderable: backorderable?) rescue nil
+          stock_item.update_column(:count_on_hand, inventory_quantity) if track_inventory? rescue nil
         end
 
         def assing_spree_variant_to_data_feed
