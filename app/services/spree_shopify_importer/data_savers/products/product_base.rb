@@ -30,7 +30,7 @@ module SpreeShopifyImporter
 
         def create_spree_variants
           @shopify_product.variants.each do |variant|
-            SpreeShopifyImporter::Importers::VariantImporterJob.perform_later(variant.to_json,
+            SpreeShopifyImporter::Importers::VariantImporterJob.perform_now(variant.to_json,
                                                                               @shopify_data_feed,
                                                                               @spree_product,
                                                                               variant_image(variant))
@@ -48,7 +48,7 @@ module SpreeShopifyImporter
 
         def create_spree_images
           shopify_images.select { |image| image.variant_ids.empty? }.each do |image|
-            SpreeShopifyImporter::Importers::ImageImporterJob.perform_later(image.to_json,
+            SpreeShopifyImporter::Importers::ImageImporterJob.perform_now(image.to_json,
                                                                             @shopify_data_feed,
                                                                             @spree_product)
           end
