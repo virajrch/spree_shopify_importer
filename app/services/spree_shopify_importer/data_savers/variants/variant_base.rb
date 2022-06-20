@@ -23,7 +23,7 @@ module SpreeShopifyImporter
         end
 
         def create_spree_image
-          SpreeShopifyImporter::Importers::ImageImporterJob.perform_later(@shopify_image,
+          SpreeShopifyImporter::Importers::ImageImporterJob.perform_now(@shopify_image,
                                                                           @shopify_data_feed,
                                                                           @spree_variant)
         end
