@@ -2,7 +2,7 @@ module SpreeShopifyImporter
   module DataSavers
     module Products
       class ProductBase < BaseDataSaver
-        delegate :attributes, :tags, :options, to: :parser
+        delegate :attributes, :options, to: :parser #, :tags
 
         private
 
@@ -10,10 +10,10 @@ module SpreeShopifyImporter
           @shopify_data_feed.update!(spree_object: @spree_product)
         end
 
-        def add_tags
-          @spree_product.tag_list = tags
-          @spree_product.save!
-        end
+        #def add_tags
+        #  @spree_product.tag_list = tags
+        #  @spree_product.save!
+        #end
 
         def add_option_types
           return if options.blank?
