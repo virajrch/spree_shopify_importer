@@ -8,22 +8,24 @@ module SpreeShopifyImporter
 
         def all(**opts)
           results = []
-          find_in_batches(**opts) do |batch|
-            break if batch.blank?
-            results += batch
-          end
+          opts = { limit: 250 }.merge(opts)
+          results = api_class.find(:all, params: opts)
+          #find_in_batches(**opts) do |batch|
+          #  break if batch.blank?
+          #  results += batch
+          #end
           results
         end
 
         private
 
         def find_in_batches(**opts)
-          #opts = { page: 1 }.merge(opts)
+          opts = { page: 1 }.merge(opts)
           loop do
             batch = api_class.find(:all, params: opts)
             break if batch.blank?
             yield batch
-            #opts[:page] += 1
+            opts[:page] += 1
           end
         end
 
