@@ -11,7 +11,7 @@ module SpreeShopifyImporter
           Spree::Product.transaction do
             update_spree_product
             add_option_types
-            add_tags
+            #add_tags
           end
           create_spree_variants
           create_spree_images
