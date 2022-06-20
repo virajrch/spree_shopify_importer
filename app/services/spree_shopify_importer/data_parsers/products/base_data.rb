@@ -18,9 +18,9 @@ module SpreeShopifyImporter
           }
         end
 
-        def tags
-          @tags ||= @shopify_product.tags
-        end
+        #def tags
+        #  @tags ||= @shopify_product.tags
+        #end
 
         def options
           @options ||= @shopify_product.options
