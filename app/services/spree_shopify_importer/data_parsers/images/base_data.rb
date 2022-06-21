@@ -16,7 +16,12 @@ module SpreeShopifyImporter
         end
 
         def attachment
-          @attachment ||= URI.parse(@shopify_image.src.to_s).open
+          file = ActionDispatch::Http::UploadedFile.new(
+                tempfile: URI.parse(@shopify_image.src.to_s).open,
+                filename: name,
+                content_type: 'image/jpg'
+          )
+          @attachment ||= file
         end
 
         def timestamps
