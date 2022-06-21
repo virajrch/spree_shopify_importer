@@ -38,7 +38,7 @@ module SpreeShopifyImporter
         def handle_missing_variant_exception
           product_id = @shopify_line_item.product_id
           shopify_product = ShopifyAPI::Product.find(product_id)
-          SpreeShopifyImporter::Importers::ProductImporterJob.perform_later(shopify_product.to_json)
+          SpreeShopifyImporter::Importers::ProductImporterJob.perform_now(shopify_product.to_json)
 
           variant_id = @shopify_line_item.variant_id
           raise VariantNotFound, I18n.t('errors.line_items.no_variant_found', variant_id: variant_id)

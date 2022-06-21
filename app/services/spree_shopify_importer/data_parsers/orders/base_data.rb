@@ -40,7 +40,7 @@ module SpreeShopifyImporter
         end
 
         def handle_missing_user(customer)
-          SpreeShopifyImporter::Importers::UserImporterJob.perform_later(customer.to_json)
+          SpreeShopifyImporter::Importers::UserImporterJob.perform_now(customer.to_json)
           raise UserNotFound, I18n.t('errors.customers.no_user_found', customer_id: customer.id)
         end
 
