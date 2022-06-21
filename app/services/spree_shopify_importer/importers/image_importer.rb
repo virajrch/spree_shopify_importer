@@ -13,7 +13,7 @@ module SpreeShopifyImporter
         if (spree_object = data_feed.spree_object).blank?
           creator.new(data_feed, @spree_viewable).create!
         else
-          updater.new(data_feed, spree_object, @spree_viewable).update!
+          #updater.new(data_feed, spree_object, @spree_viewable).update!
         end
       end
 
