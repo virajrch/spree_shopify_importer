@@ -12,8 +12,8 @@ module SpreeShopifyImporter
         def update!
           Spree::Variant.transaction do
             update_spree_variant
-            add_option_values
-            @spree_variant.save!
+            add_option_values rescue nil
+            @spree_variant.save! rescue break
             set_stock_data
           end
           create_spree_image if @shopify_image.present?
