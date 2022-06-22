@@ -12,7 +12,6 @@ module SpreeShopifyImporter
           Spree::Variant.transaction do
             @spree_variant = build_spree_variant
             add_option_values
-            byebug
             @spree_variant.save! rescue nil
             assing_spree_variant_to_data_feed rescue nil
             set_stock_data rescue nil

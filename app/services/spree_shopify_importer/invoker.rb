@@ -3,7 +3,7 @@ module SpreeShopifyImporter
     ROOT_FETCHERS = [
       SpreeShopifyImporter::DataFetchers::ProductsFetcher,
       SpreeShopifyImporter::DataFetchers::UsersFetcher,
-      SpreeShopifyImporter::DataFetchers::TaxonsFetcher,
+      #SpreeShopifyImporter::DataFetchers::TaxonsFetcher,
       SpreeShopifyImporter::DataFetchers::OrdersFetcher
     ].freeze
 
